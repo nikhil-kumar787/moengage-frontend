@@ -79,15 +79,7 @@ function Anime({ match, history }) {
     console.log(userId);
     // setAnimeId(`${match.params.id}`);
     // console.log(animeId);
-    dispatch(
-      createReviewAction(
-        user.name,
-        rating,
-        user._id,
-        `${match.params.id}`,
-        desc
-      )
-    );
+    dispatch(createReviewAction(rating, `${match.params.id}`, desc));
     if (!rating || !desc) return;
 
     resetHandler();

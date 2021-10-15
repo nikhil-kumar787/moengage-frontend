@@ -7,7 +7,7 @@ import {
 } from "../constants/animeConstants";
 
 export const createReviewAction =
-  (name, rating, userId, animeId, desc) => async (dispatch, getState) => {
+  (rating, animeId, desc) => async (dispatch, getState) => {
     try {
       dispatch({
         type: ANIME_CREATE_REQUEST,
@@ -23,6 +23,8 @@ export const createReviewAction =
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
+      const name = userInfo.name;
+      const userId = userInfo._id;
 
       const { data } = await axios.post(
         `https://moengage-backend.herokuapp.com/api/users/review`,
